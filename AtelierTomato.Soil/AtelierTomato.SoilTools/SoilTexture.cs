@@ -6,6 +6,9 @@ namespace AtelierTomato.SoilTools
 	{
 		private readonly Vector3 point;
 		private string? name;
+		public float Clay => point.X;
+		public float Silt => point.Y;
+		public float Sand => point.Z;
 		public string Name
 		{
 			get {
