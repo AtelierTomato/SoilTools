@@ -82,5 +82,28 @@ namespace AtelierTomato.SoilTools
 			{ "Loamy Sand", LoamySandRegion },
 			{ "Sand", SandRegion }
 		};
+
+		private static bool IsPointInsideTriangle(Vector3 p, Vector3 v0, Vector3 v1, Vector3 v2)
+		{
+			// Compute vectors
+			Vector3 v0v1 = v1 - v0;
+			Vector3 v0v2 = v2 - v0;
+			Vector3 vp = p - v0;
+
+			// Compute dot products
+			float dot00 = Vector3.Dot(v0v1, v0v1);
+			float dot01 = Vector3.Dot(v0v1, v0v2);
+			float dot02 = Vector3.Dot(v0v1, vp);
+			float dot11 = Vector3.Dot(v0v2, v0v2);
+			float dot12 = Vector3.Dot(v0v2, vp);
+
+			// Computer barycentric coordinates
+			float invDenom = 1 / (dot00 * dot11 - dot01 * dot01);
+			float u = (dot11 * dot02 - dot01 * dot12) * invDenom;
+			float v = (dot00 * dot12 - dot01 * dot02) * invDenom;
+
+			// Check if point is in triangle
+			return (u >= 0) && (v >= 0) && (u + v <= 1);
+		}
 	}
 }
