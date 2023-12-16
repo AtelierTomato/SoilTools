@@ -14,6 +14,7 @@ namespace AtelierTomato.Soil
 			var userInput = Console.ReadLine();
 			var userSoilTextureValues = userInput.Split(' ').Select(s => float.Parse(s)).ToArray();
 			SoilTexture userGround = new SoilTexture(userSoilTextureValues[0], userSoilTextureValues[1], userSoilTextureValues[2]);
+			Console.WriteLine(userGround.Name);
 		}
 	}
 }

@@ -5,6 +5,19 @@ namespace AtelierTomato.SoilTools
 	public record SoilTexture
 	{
 		private readonly Vector3 point;
+		private string? name;
+		public string Name
+		{
+			get {
+				if (name is not null)
+				{
+					return name;
+				} else
+				{
+					return name = DetermineSoilTexture();
+				}
+			}
+		}
 
 		public SoilTexture(float clay, float silt, float sand)
 		{
@@ -82,6 +95,12 @@ namespace AtelierTomato.SoilTools
 			{ "Loamy Sand", LoamySandRegion },
 			{ "Sand", SandRegion }
 		};
+
+		private string DetermineSoilTexture() => SoilTextureTriangle
+			.First(region => region
+				.Value
+				.Any(triangle => IsPointInsideTriangle(point, triangle[0], triangle[1], triangle[2])))
+			.Key;
 
 		private static bool IsPointInsideTriangle(Vector3 p, Vector3 v0, Vector3 v1, Vector3 v2)
 		{
