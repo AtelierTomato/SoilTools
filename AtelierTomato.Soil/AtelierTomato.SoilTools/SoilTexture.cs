@@ -2,17 +2,18 @@
 
 namespace AtelierTomato.SoilTools
 {
-	public record SoilTextureTriangle
+	public record SoilTexture
 	{
 		private readonly Vector3 point;
 
-		public SoilTextureTriangle(float clay, float silt, float sand)
+		public SoilTexture(float clay, float silt, float sand)
 		{
 			var total = clay + silt + sand;
 			// Calculate percentage of each mineral type and make it to a Vector3
 			point = new Vector3(clay / total * 100, silt / total * 100, sand / total * 100);
 		}
 
+		// Construct a soil texture triangle split into regions that are assigned specific soil textures as a dictionary
 		public static Vector3[][] ClayRegion = new[] {
 			new [] { new Vector3 ( 100.0f,   0.0f,   0.0f ), new Vector3 (  60.0f,  40.0f,   0.0f ), new Vector3 (  55.0f,   0.0f,  45.0f ) },
 			new [] { new Vector3 (  60.0f,  40.0f,   0.0f ), new Vector3 (  40.0f,  15.0f,  45.0f ), new Vector3 (  55.0f,   0.0f,  45.0f ) },
@@ -67,7 +68,7 @@ namespace AtelierTomato.SoilTools
 			new [] { new Vector3 (  10.0f,   0.0f,  90.0f ), new Vector3 (   0.0f,  15.0f,  85.0f ), new Vector3 (   0.0f,   0.0f, 100.0f ) }
 		};
 
-		public static Dictionary<string, Vector3[][]> AllSections = new() {
+		public static Dictionary<string, Vector3[][]> SoilTextureTriangle = new() {
 			{ "Clay", ClayRegion },
 			{ "Silty Clay", SiltyClayRegion },
 			{ "Sandy Clay", SandyClayRegion },
