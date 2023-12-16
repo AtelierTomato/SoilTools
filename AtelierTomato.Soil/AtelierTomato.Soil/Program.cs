@@ -2,12 +2,11 @@
 {
 	public class Program
 	{
-		public static int Main()
+		public static void Main()
 		{
 			Console.WriteLine("Welcome to my cool program!");
 			Console.WriteLine("In this program we will be soiling.");
 			Console.WriteLine("Goodbye, World!");
-			return 0;
 		}
 	}
 }
