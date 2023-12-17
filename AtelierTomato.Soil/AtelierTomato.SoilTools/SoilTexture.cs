@@ -99,11 +99,13 @@ namespace AtelierTomato.SoilTools
 			{ "Sand", SandRegion }
 		};
 
-		private string DetermineSoilTexture() => SoilTextureTriangle
-			.First(region => region
+		private string DetermineSoilTexture() => DetermineSoilClassifications().First();
+
+		public IEnumerable<string> DetermineSoilClassifications() => SoilTextureTriangle
+			.Where(region => region
 				.Value
 				.Any(triangle => IsPointInsideTriangle(point, triangle[0], triangle[1], triangle[2])))
-			.Key;
+			.Select(x => x.Key);
 
 		private static bool IsPointInsideTriangle(Vector3 p, Vector3 v0, Vector3 v1, Vector3 v2)
 		{
