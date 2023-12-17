@@ -39,7 +39,7 @@ namespace AtelierTomato.SoilTools
 			new [] { new Vector3 (  60.0f,  40.0f,   0.0f ), new Vector3 (  40.0f,  60.0f,   0.0f ), new Vector3 (  40.0f,  40.0f,  20.0f ) }
 		};
 		public static Vector3[][] SandyClayRegion = new[] {
-			new [] { new Vector3 (  55.0f,  40.0f,   0.0f ), new Vector3 (  40.0f,  60.0f,   0.0f ), new Vector3 (  40.0f,  40.0f,  20.0f ) }
+			new [] { new Vector3 (  55.0f,   0.0f,  45.0f ), new Vector3 (  35.0f,  20.0f,  45.0f ), new Vector3 (  35.0f,   0.0f,  65.0f ) }
 		};
 		public static Vector3[][] ClayLoamRegion = new[] {
 			new [] { new Vector3 (  40.0f,  15.0f,  45.0f ), new Vector3 (  40.0f,  40.0f,  20.0f ), new Vector3 (  27.5f,  27.5f,  45.0f ) },
