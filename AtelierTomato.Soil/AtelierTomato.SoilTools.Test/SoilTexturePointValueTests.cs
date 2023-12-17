@@ -1,6 +1,6 @@
 namespace AtelierTomato.SoilTools.Test
 {
-	public class SoilTextureTests
+	public class SoilTexturePointValueTests
 	{
 		[Fact]
 		public void LowPercentageTest()
