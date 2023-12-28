@@ -4,6 +4,23 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <AssemblyName>AtelierTomato.SoilTools</AssemblyName>
+    <RootNamespace>AtelierTomato.SoilTools</RootNamespace>
+    <PackageId>AtelierTomato.SoilTools</PackageId>
+    <Authors>suflors</Authors>
+    <Product>AtelierTomato.SoilTools</Product>
+    <Title>Soil Tools</Title>
+    <Version>1.0.0</Version>
+    <Company>AtelierTomato</Company>
+    <Copyright>GPL-3.0 license</Copyright>
+    <Description>Tools for analyzing soil.</Description>
+    <PackageProjectUrl></PackageProjectUrl>
+    <RepositoryUrl>https://github.com/AtelierTomato/SoilTools</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>soil; soil analysis; soil texture; soil texture triangle</PackageTags>
+    <PackageReleaseNotes>The initial release.</PackageReleaseNotes>
+    <GenerateDocumentationFile>False</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>
 
 </Project>
