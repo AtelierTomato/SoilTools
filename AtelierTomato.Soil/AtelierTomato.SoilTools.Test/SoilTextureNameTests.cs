@@ -37,5 +37,32 @@
 			SoilTexture texture = new SoilTexture(clay, silt, sand);
 			texture.Name.Equals(expectedName);
 		}
+
+		[Theory]
+		[InlineData(100, 0, 0, "Clay")]
+		[InlineData(90, 10, 0, "Clay")]
+		[InlineData(90, 0, 10, "Clay")]
+		[InlineData(50, 50, 0, "Silty Clay")]
+		[InlineData(50, 0, 50, "Sandy Clay")]
+		[InlineData(35, 65, 0, "Silty Clay Loam")]
+		[InlineData(30, 0, 70, "Sandy Clay Loam")]
+		[InlineData(20, 80, 0, "Silt Loam")]
+		[InlineData(0, 60, 40, "Silt Loam")]
+		[InlineData(17.5, 0, 82.5, "Sandy Loam")]
+		[InlineData(0, 35, 65, "Sandy Loam")]
+		[InlineData(0, 45, 55, "Sandy Loam")]
+		[InlineData(12.5, 0, 87.5, "Loamy Sand")]
+		[InlineData(0, 20, 80, "Loamy Sand")]
+		[InlineData(5, 95, 0, "Silt")]
+		[InlineData(0, 90, 10, "Silt")]
+		[InlineData(0, 100, 0, "Silt")]
+		[InlineData(5, 0, 95, "Sand")]
+		[InlineData(0, 5, 95, "Sand")]
+		[InlineData(0, 0, 100, "Sand")]
+		public void ZeroTests(int clay, int silt, int sand, string expectedName)
+		{
+			SoilTexture texture = new SoilTexture(clay, silt, sand);
+			texture.Name.Equals(expectedName);
+		}
 	}
 }
