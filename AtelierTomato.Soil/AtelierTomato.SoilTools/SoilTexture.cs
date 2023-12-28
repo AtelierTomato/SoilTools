@@ -115,16 +115,18 @@ namespace AtelierTomato.SoilTools
 			Vector3 vp = p - v0;
 
 			// Compute dot products
-			float dot00 = Vector3.Dot(v0v1, v0v1);
-			float dot01 = Vector3.Dot(v0v1, v0v2);
-			float dot02 = Vector3.Dot(v0v1, vp);
-			float dot11 = Vector3.Dot(v0v2, v0v2);
-			float dot12 = Vector3.Dot(v0v2, vp);
+			decimal dot00 = (decimal)Vector3.Dot(v0v1, v0v1);
+			decimal dot01 = (decimal)Vector3.Dot(v0v1, v0v2);
+			decimal dot02 = (decimal)Vector3.Dot(v0v1, vp);
+			decimal dot11 = (decimal)Vector3.Dot(v0v2, v0v2);
+			decimal dot12 = (decimal)Vector3.Dot(v0v2, vp);
 
 			// Computer barycentric coordinates
-			float invDenom = 1 / (dot00 * dot11 - dot01 * dot01);
-			float u = (dot11 * dot02 - dot01 * dot12) * invDenom;
-			float v = (dot00 * dot12 - dot01 * dot02) * invDenom;
+			decimal invDenom = 1 / (dot00 * dot11 - dot01 * dot01);
+			decimal u = (dot11 * dot02 - dot01 * dot12) * invDenom;
+			decimal v = (dot00 * dot12 - dot01 * dot02) * invDenom;
+			u = Math.Round(u, 2);
+			v = Math.Round(v, 2);
 
 			// Check if point is in triangle
 			return (u >= 0) && (v >= 0) && (u + v <= 1);
