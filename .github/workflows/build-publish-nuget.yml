@@ -36,12 +36,12 @@ jobs:
             dotnet pack "$proj" --configuration Release --no-build
           done
 
-      - name: Publish to GitHub Packages
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-        run: dotnet nuget push AtelierTomato.Soil/**/*.nupkg --source "https://nuget.pkg.github.com/suflors/index.json"
-
       - name: Publish to NuGet.org
         env:
           NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
         run: dotnet nuget push AtelierTomato.Soil/**/*.nupkg --source "https://api.nuget.org/v3/index.json"
+
+      - name: Publish to GitHub Packages
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: dotnet nuget push AtelierTomato.Soil/**/*.nupkg --source "https://nuget.pkg.github.com/suflors/index.json"
