@@ -40,4 +40,4 @@ jobs:
         run: dotnet nuget push AtelierTomato.Soil/**/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source "https://api.nuget.org/v3/index.json" --skip-duplicate
 
       - name: Publish to GitHub Packages
-        run: dotnet nuget push AtelierTomato.Soil/**/*.nupkg --api-key ${{ secrets.GITHUB_TOKEN }} --source "https://nuget.pkg.github.com/AtelierTomato/index.json" --skip-duplicate
+        run: dotnet nuget push AtelierTomato.Soil/**/*.nupkg --api-key ${{ secrets.GH_TOKEN }} --source "https://nuget.pkg.github.com/AtelierTomato/index.json" --skip-duplicate
