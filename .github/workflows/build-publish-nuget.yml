@@ -37,11 +37,7 @@ jobs:
           done
 
       - name: Publish to NuGet.org
-        env:
-          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
-        run: dotnet nuget push AtelierTomato.Soil/**/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source "https://api.nuget.org/v3/index.json"
+        run: dotnet nuget push AtelierTomato.Soil/**/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source "https://api.nuget.org/v3/index.json" --skip-duplicate
 
       - name: Publish to GitHub Packages
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-        run: dotnet nuget push AtelierTomato.Soil/**/*.nupkg --api-key ${{ secrets.GH_TOKEN }} --source "https://nuget.pkg.github.com/suflors/index.json"
+        run: dotnet nuget push AtelierTomato.Soil/**/*.nupkg --api-key ${{ secrets.GITHUB_TOKEN }} --source "https://nuget.pkg.github.com/AtelierTomato/index.json" --skip-duplicate
