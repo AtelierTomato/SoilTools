@@ -19,13 +19,13 @@ jobs:
           dotnet-version: '6.0.x'
 
       - name: Restore dependencies
-        run: dotnet restore **/*.csproj
+        run: dotnet restore AtelierTomato.Soil/**/*.csproj
 
       - name: Build
-        run: dotnet build **/*.csproj --configuration Release --no-restore
+        run: dotnet build AtelierTomato.Soil/**/*.csproj --configuration Release --no-restore
 
       - name: Pack
-        run: dotnet pack **/*.csproj --configuration Release --no-build
+        run: dotnet pack AtelierTomato.Soil/**/*.csproj --configuration Release --no-build
 
       - name: Publish to GitHub Packages
         env:
