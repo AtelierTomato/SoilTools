@@ -39,7 +39,7 @@ jobs:
       - name: Publish to GitHub Packages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: dotnet nuget push bin/Release/*.nupkg --source "github"
+        run: dotnet nuget push bin/Release/*.nupkg --source "https://nuget.pkg.github.com/AtelierTomato/index.json"
 
       - name: Publish to NuGet.org
         env:
