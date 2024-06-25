@@ -38,7 +38,7 @@ jobs:
 
       - name: Publish to GitHub Packages
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: dotnet nuget push AtelierTomato.Soil/**/*.nupkg --source "https://nuget.pkg.github.com/AtelierTomato/index.json"
 
       - name: Publish to NuGet.org
